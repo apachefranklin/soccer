@@ -1,0 +1,283 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-12-21 03:37+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: sharedapp/puser/api_form.py:93
+msgid "connexion éffectuée avec succèss"
+msgstr ""
+
+#: sharedapp/puser/api_form.py:99
+msgid ""
+"veuillez verfier votre mot de passe votre idenfiant. ils sont sensible à la "
+"case"
+msgstr ""
+
+#: sharedapp/puser/api_form.py:126
+msgid "ce nom d'utilisateur n'est plus disponible"
+msgstr ""
+
+#: sharedapp/puser/api_form.py:128
+msgid "addresse émail insdisponible"
+msgstr ""
+
+#: sharedapp/puser/forms.py:7
+#, fuzzy
+#| msgid "nom d'utilisateur:"
+msgid "nom d'utilisateur ou émail"
+msgstr "username"
+
+#: sharedapp/puser/forms.py:7
+msgid "émail ou nom d'utilisateur"
+msgstr "email or username"
+
+#: sharedapp/puser/forms.py:12
+#: sharedapp/puser/templates/puser/password/enter_new_password.html:53
+#: sharedapp/puser/templates/puser/signup.html:56
+msgid "mot de passe"
+msgstr "password"
+
+#: sharedapp/puser/forms.py:13
+#, fuzzy
+#| msgid "confirmez le mot de passe"
+msgid "repetez le mot de passe"
+msgstr "confirm the password"
+
+#: sharedapp/puser/forms.py:22
+msgid "les mots de passes ne sont pas identiques"
+msgstr ""
+
+#: sharedapp/puser/forms.py:39
+#, fuzzy
+#| msgid "changer de photo de profil"
+msgid "Photo de profil"
+msgstr "change profile picture"
+
+#: sharedapp/puser/templates/puser/change_password.html:12
+#: sharedapp/puser/templates/registration/password_change_form.html:13
+msgid "changer de mot de passe"
+msgstr "change password"
+
+#: sharedapp/puser/templates/puser/change_password.html:17
+msgid "votre ancien mot de passe:"
+msgstr "your old password"
+
+#: sharedapp/puser/templates/puser/change_password.html:21
+msgid "nouveau mot de passe:"
+msgstr "new password"
+
+#: sharedapp/puser/templates/puser/change_password.html:25
+msgid "confirmez votre mot de passe:"
+msgstr "confirm password"
+
+#: sharedapp/puser/templates/puser/change_password.html:28
+#: sharedapp/puser/templates/puser/change_profil_picture.html:17
+#: sharedapp/puser/templates/registration/password_change_form.html:31
+msgid "changer"
+msgstr "change"
+
+#: sharedapp/puser/templates/puser/change_profil_picture.html:9
+msgid "changer de photo de profil"
+msgstr "change profile picture"
+
+#: sharedapp/puser/templates/puser/edit.html:11
+#: sharedapp/puser/templates/puser/update_profil.html:11
+msgid "mettre a jour mes informations"
+msgstr "update my informations"
+
+#: sharedapp/puser/templates/puser/edit.html:15
+#: sharedapp/puser/templates/puser/update_profil.html:44
+msgid "mettre à jour"
+msgstr "update"
+
+#: sharedapp/puser/templates/puser/password/confirm_code_sended.html:5
+#: sharedapp/puser/templates/puser/password/confirm_code_sended.html:61
+msgid "code"
+msgstr "code"
+
+#: sharedapp/puser/templates/puser/password/confirm_code_sended.html:36
+#: sharedapp/puser/templates/puser/password/enter_new_password.html:35
+#: sharedapp/puser/templates/puser/password/request_new_password.html:36
+msgid "demande d'un nouveau mot de passe"
+msgstr "request a new password"
+
+#: sharedapp/puser/templates/puser/password/confirm_code_sended.html:46
+msgid "veuillez entrez le code confirmation envoyé dans votre boite émail:"
+msgstr "please enter the confirmation code sent in your email box:"
+
+#: sharedapp/puser/templates/puser/password/confirm_code_sended.html:69
+msgid "confirmez le code"
+msgstr "confirm the code"
+
+#: sharedapp/puser/templates/puser/password/confirm_code_sended.html:75
+msgid "envoyer de nouveau le code"
+msgstr "resend the code"
+
+#: sharedapp/puser/templates/puser/password/confirm_code_sended.html:78
+#: sharedapp/puser/templates/puser/password/request_new_password.html:65
+msgid "je n'ai pas de compte"
+msgstr "i don't have an account"
+
+#: sharedapp/puser/templates/puser/password/enter_new_password.html:5
+msgid "réinitialisation du mot de passe"
+msgstr "password reset"
+
+#: sharedapp/puser/templates/puser/password/enter_new_password.html:46
+msgid "veuillez entrez votre nouveau mot de passe:"
+msgstr "please enter your new password:"
+
+#: sharedapp/puser/templates/puser/password/enter_new_password.html:57
+msgid "confirmez le mot de passe"
+msgstr "confirm the password"
+
+#: sharedapp/puser/templates/puser/password/enter_new_password.html:62
+msgid "réinitialiser"
+msgstr "reset"
+
+#: sharedapp/puser/templates/puser/password/request_new_password.html:6
+msgid "nouveau mot de passe"
+msgstr "new password"
+
+#: sharedapp/puser/templates/puser/password/request_new_password.html:46
+msgid "veuillez saisir votre addresse émail dans le champ ci dessous:"
+msgstr "please enter your email address in the field below:"
+
+#: sharedapp/puser/templates/puser/password/request_new_password.html:53
+msgid "émail"
+msgstr "email"
+
+#: sharedapp/puser/templates/puser/password/request_new_password.html:58
+msgid "envoie du code de réinitialisation"
+msgstr "send reset code"
+
+#: sharedapp/puser/templates/puser/profil_user.html:16
+#: sharedapp/puser/templates/puser/signup.html:48
+msgid "nom d'utilisateur:"
+msgstr "username"
+
+#: sharedapp/puser/templates/puser/profil_user.html:19
+msgid "nom et prénom:"
+msgstr "first and last name"
+
+#: sharedapp/puser/templates/puser/profil_user.html:22
+#: sharedapp/puser/templates/puser/update_profil.html:27
+msgid "sexe:"
+msgstr "sex:"
+
+#: sharedapp/puser/templates/puser/profil_user.html:25
+msgid "émail(s):"
+msgstr "email(s):"
+
+#: sharedapp/puser/templates/puser/profil_user.html:28
+msgid "téléphone:"
+msgstr "phone:"
+
+#: sharedapp/puser/templates/puser/profil_user.html:31
+#: sharedapp/puser/templates/puser/update_profil.html:24
+msgid "addresse:"
+msgstr "address:"
+
+#: sharedapp/puser/templates/puser/signup.html:7
+msgid "inscription"
+msgstr "signup"
+
+#: sharedapp/puser/templates/puser/signup.html:40
+msgid "rejoignez l'univers"
+msgstr "join universe"
+
+#: sharedapp/puser/templates/puser/signup.html:43
+msgid "mon compte"
+msgstr "my account"
+
+#: sharedapp/puser/templates/puser/signup.html:52
+msgid "émail:"
+msgstr "email:"
+
+#: sharedapp/puser/templates/puser/signup.html:60
+#, fuzzy
+#| msgid "confirmez le mot de passe"
+msgid "répétez le mot de passe:"
+msgstr "confirm the password"
+
+#: sharedapp/puser/templates/puser/signup.html:66
+msgid "Inscription"
+msgstr "Signup"
+
+#: sharedapp/puser/templates/puser/signup.html:69
+msgid "j'ai déjà un compte"
+msgstr "already have account"
+
+#: sharedapp/puser/templates/puser/signup.html:72
+#: sharedapp/puser/templates/registration/login.html:69
+msgid "ou  continuer avec"
+msgstr "or continus with"
+
+#: sharedapp/puser/templates/puser/update_profil.html:16
+msgid "nom:"
+msgstr "name:"
+
+#: sharedapp/puser/templates/puser/update_profil.html:20
+msgid "prénom:"
+msgstr "first name:"
+
+#: sharedapp/puser/templates/registration/login.html:7
+#: sharedapp/puser/templates/registration/login.html:22
+msgid "connexion"
+msgstr "login"
+
+#: sharedapp/puser/templates/registration/login.html:28
+msgid "bienvenue chez"
+msgstr "welcome at"
+
+#: sharedapp/puser/templates/registration/login.html:52
+msgid "mot de passe oublié"
+msgstr "Forgot your password?"
+
+#: sharedapp/puser/templates/registration/login.html:58
+msgid "CONNEXION"
+msgstr "login"
+
+#: sharedapp/puser/templates/registration/login.html:63
+msgid "créer un compte"
+msgstr "create account"
+
+#~ msgid "émail ou nom d\\"
+#~ msgstr "email or username"
+
+#, fuzzy
+#~| msgid "Entrez votre mot de passe"
+#~ msgid "Etrez votre nom d\\"
+#~ msgstr "enter your password"
+
+#, fuzzy
+#~| msgid "Entrez votre mot de passe"
+#~ msgid "Entrez votre email"
+#~ msgstr "enter your password"
+
+#, fuzzy
+#~| msgid "Entrez votre mot de passe"
+#~ msgid "entrez votre mot de passe"
+#~ msgstr "enter your password"
+
+#, fuzzy
+#~| msgid "confirmez votre mot de passe:"
+#~ msgid "confirmez votre mot de passe"
+#~ msgstr "confirm password"
+
+#~ msgid "mot de passe:"
+#~ msgstr "password:"

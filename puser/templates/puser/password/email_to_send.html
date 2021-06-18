@@ -1,0 +1,61 @@
+<!Doctype html>
+<html>
+    <head>
+    <meta charset='utf-8'>
+        <title>Confirmation de compte</title>
+        <style type='text/css'>
+        body{
+            font-family:"arial narrow";
+            font-size:23px;
+        }
+        .btn
+        {
+            display:block;
+            color:#ffffff !important;
+            width:250px;
+            height:50px;
+            border:none;
+            box-shadow: 0px 0px 4px grey;
+            background-color:#d84315;
+            text-decoration: none;
+            text-align:center;
+            line-height:50px;
+            text-transform:uppercase;
+        }
+        .description{
+            display:block;
+            width: 300px;
+            height: auto;
+            box-shadow: 0px 0px 4px grey;
+            padding: 14px;
+            /*background-color:#01579b;*/
+            border-radius:3px;
+            font-weight:100;
+
+        }
+        </style>
+    </head>
+
+    <body>
+    <img src='https://www.protogons.loc/assets/shared/images/general/protogons_complet.png' width='150px' />
+    <br />
+    <br />
+    <span class='description'>
+    Hey, <b>{{ name }}</b>,
+    <br />
+    <br />
+                Tu as demandé à renitialiser ton mot de passe,
+            Nous t'envoyons un code de renitialisation qui est le suivant:
+    <br />
+    <br />
+    <h3>Code:{{ code }}</h3>
+    </span>
+    <br />
+    <br />
+    Tu peux egalement cliquer sur le lien si dessous pour un nouveau mot de passe
+    <a href='https://www.protogons.loc/signin/enter_new_password?fromurl=true&email={{email}}&code={{ code }}' class='btn'>
+        CONTINUER
+    </a>
+    
+    </body>
+</html>

@@ -1,0 +1,160 @@
+{% load static %}
+{% load i18n %}
+<html>
+<head>
+    <title class="fup">{% trans "code" %}</title>
+    
+{% include "base_site/base_css_js.html" %}
+</head>
+<body class='my-blue'  style="background-image:url({% static 'base_site/images/general/background.png' %}); background-repeat:reapeat;">
+<!--loader for my form-->
+<div id='pageloader'>
+    <div class="preloader-wrapper small active">
+        <div class="spinner-layer spinner-green-only">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end loader -->
+<div class="row">
+<div class='col l4 offset-l4 m6 offset-m2 s10 offset-s1 left-align'>
+            <br />
+            <br />
+            
+           <a href="{% url 'pwb:home' %}">
+            <img src="{% static 'shared/images/general/protogons_logo_blanc.png' %}" style='width:100px !important; height:auto !important' />
+           </a>
+            <br />
+            <span class='white-text' style='font-size:25px'><b class="fup">{% trans "demande d'un nouveau mot de passe" %}</b></span>
+           </div>
+    <div class='col s12 center-align'>
+   
+    </div>
+
+</div>
+<div class="row signin-up">
+
+    <div class="col l4 offset-l4 m6 offset-m2 s10 offset-s1 z-depth-1 white fup">
+        {% trans "veuillez entrez le code confirmation envoyé dans votre boite émail:" %}
+        <form action="{% url 'ppwdcodeconfirm' %}" method="get" id ="formperform_code_sended">
+            <div class='row'>   
+                    {% if msg %}
+                        <div class="col s12">
+                            <div class="card red lighten-3 center-align white-text">
+                                <br />
+                                 {{ msg }}
+                                <br /><br />
+                            </div>
+                        
+                        </div>
+                    {% endif %}
+                <div class='input-field col s12'>
+                    <input type='number' name='code' id='code' required='' class='validate' />
+                    <label for='code' class="fup">{% trans "code" %}</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="email" value="{{ request.session.mail_reset }}" name="email" readonly="" />
+                </div>
+                <br />
+                <div class='col s12'>
+                    <button type='submit' class='btn btn-large my-orange z-depth-1 input-text rounded'>
+                        {% trans "confirmez le code" %}
+                    </button>
+                    <br />
+                </div>
+            </div>
+        </form>
+        <a href='#'><b class="fup">{% trans "envoyer de nouveau le code" %}</b></a>
+        <br />
+        <br />
+        <a href="{% url 'signup' %}" class='b' style='font-size:20px'><b class="fu[">{% trans "je n'ai pas de compte" %}</b></a>
+        <br />
+</div>
+       
+</div>
+
+
+<script type="text/javascript">
+    $(function(e){
+        $("#form_perform_code_sended").on("submit",function(e){
+            e.preventDefault();
+            $("#pageloader").fadeIn();
+            var redirect_url='"';
+            var url_action=$(this).attr("action");
+            var email=$("#code").val().trim();
+            var form_data=new FormData(this);
+
+            $.ajax({
+            url:url_action,
+            method: "POST",
+            data: form_data,
+            contentType: false,
+            cache: false,
+            processData: false,
+            dataType: "json",
+            success:function(result){
+                $("#pageloader").fadeOut();
+                if(result=="no_matching"){
+                    $.toast(
+                        {
+                        heading:"Info requête",
+                        text:"<h2>Le code  est incorrect</h2>",
+                        position: 'mid-center',
+                        hideAfter:false,
+                        icon:'error',
+                    }
+                        );
+                }
+                else if(result=="email_error"){
+                    $.toast(
+                        {
+                        heading:"Info requête",
+                        text:"<h2>L'addresse email est incorrecte</h2>",
+                        position: 'mid-center',
+                        hideAfter:false,
+                        icon:'error',
+                    }
+                        );
+                }
+                else if(result=="success"){
+                    $.toast(
+                        {
+                        heading:"Info requête",
+                        text:"<h2>Code correcte</h2>",
+                        position: 'mid-center',
+                        icon:'success',
+                        afterHidden:function(){
+                            window.location.replace(base_url()+"signin/enter_new_password.html");
+                        }
+                    }
+                        );
+                }
+            },
+            error:function(result){
+                $("#pageloader").fadeOut();
+                $.toast(
+                        {
+                        heading:"Info requête",
+                        text:"<h2>Une erreur inattendu s'es produite, essayer de nouveau</h2>",
+                        position: 'mid-center',
+                        hideAfter:false,
+                        icon:'error',
+                    }
+                        );
+            }
+            })
+            return false;
+        })
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,286 @@
+{% load static %}
+{% load keyvalue %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Home</title>
+    
+    {% include "basecoupechef/includes/css_js.html" %}
+
+</head>
+
+<body>
+
+
+
+    
+
+<!--MAIN MENU WRAP END-->
+{% include "basecoupechef/includes/header.html" %}
+
+<div class="heaer" style="position:relative; padding-bottom: 20px; top:-20px; min-height: 400px; max-height: auto; margin:none; padding:none; background-image: url({% static 'images/general/header.jpg' %}); background-size:cover">
+    <div class="header-cover" style="position: absolute; z-index:1; top:0px; bottom:0px; left:0px; right: 0px;background-color: rgba(0,0,0,0.8)">
+
+    </div>
+    <div class="container" style="position:relative;z-index: 2;">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <h3 style="color:white; font-weight: bold; text-transform: none !important;">
+                    Bienvenue a la coupe du chef de departement
+                </h3>
+                <h4 style="color:white;text-transform: none !important;">
+                    D'informatique
+                    <br /><br />
+                    Commence le {{ active_edition.begin_date }} au {{ active_edition.en_date }}
+                </h4>
+                
+                <a href="{% url 'home' %}#classement" class="btn btn-success">Voir le classement</a>
+            </div>
+            <div class="col-12 pt-10 col-md-6 bg-white" style="padding-top: 50px;">
+                <div class="box_shadow" style="padding:20px !important; background-color: beige;height: 98%; width: 90%; border-radius: 4px; font-size:18px; text-align: justify;">
+                    La coupe du chef de département réunit les informaticiens autour d'un ballon,
+                   avec une bonne dose d'intensité, de qualité et surtout d'émotion.Le tournoi va a une allure palpipante depuis le 15 Juin.
+                </div>
+                  
+               
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+
+
+
+<!--MAIN MACTH SHEDULE BEGIN-->
+<section class="main-match-shedule">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <h6>Prochains matchs</h6>              
+                    <div class="main-next-match bg-cover">
+                    <img src="{% static 'images/soccer/next-match-bg.jpg' %}" class="next-match-background-img" alt="next-image"> 
+                    <div class="wrap">
+                        <div class="place"style="font-size: 24px !important;" >Mateco</div>
+                        <div class="date" style="font-size: 24px !important;">{{ next_match.date_to_play }}</div>
+                        <div class="teams-wrap" style="font-size: 24px !important;" >
+                                
+                                <a href="#" class="team" style="font-size: 24px !important;">
+                                    <span>{{ next_match.team1 }}</span>
+                                    
+                                </a>
+                                <div class="vs" style="font-size: 24px !important;">
+                                vs
+                                </div>
+                                <a href="#" class="team1" style="font-size: 24px !important;">
+                                    
+                                    <span>{{ next_match.team2 }}</span>
+                                </a>
+                        </div>
+                        <a href="{% url 'calendar' %}" class="booking">Calendrier</a>
+                    </div>
+                    </div>
+               
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                 <div class="main-lates-matches shadow-lg mb-10 " style="margin-bottom: 30px !important; background-color: beige !important;">
+                    {% if played %}
+                    <h6>Deniers matchs</h6>
+                    {% for match in played  %}
+                    <a href="#" class="item" style="background-color: rgb(173, 173, 140);">
+                        <span class="championship" style="color: black !important; font-weight: bold !important;">{{ match.title }}</span>
+                        <span class="teams-wrap">
+                                <span class="team">
+                                    <span>{{ match.team1.name }}</span>
+                                </span>
+                                <span class="score">
+                                    <span>{{ match.goal_team1}} : {{ match.goal_team2 }}</span>
+                
+                                </span>
+                                <span class="team1">
+                                    <span>{{ match.team2.name }}</span>
+                                </span>
+                        </span>
+                        <!--
+                            <span class="game-result">(5-4) penalties</span>
+                        -->
+                        
+                    </a>
+                    {% endfor %}
+
+                    {% else %}
+                    <h6>Tous les matchs</h6>
+                    {% for match in matchs  %}
+                    <a href="#" class="item" style="background-color: rgb(173, 173, 140);">
+                        <span class="championship" style="color: black !important; font-weight: bold !important;">{{ match.title }}</span>
+                        <span class="teams-wrap">
+                                <span class="team">
+                                    <span>{{ match.team1.name }}</span>
+                                </span>
+                                <span class="score">
+                                    <span>{{ match.date_to_play }}</span>
+                
+                                </span>
+                                <span class="team1">
+                                    <span>{{ match.team2.name }}</span>
+                                </span>
+                        </span>
+                        <!--
+                            <span class="game-result">(5-4) penalties</span>
+                        -->
+                        
+                    </a>
+                    {% endfor %}
+                    {% endif %}
+                    
+                    
+                    
+                   
+                </div> 
+                
+                     
+            
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--MAIN MACTH SHEDULE END-->
+
+<!--MAIN PLAYERS STAT BEGIN-->
+
+<section class="main-players-stat bg-cover" id="classement">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-7 col-12">
+                <div class="container-fluid bg-azure">
+                    <h4 class = "hockey-stats-h4">Statistiques</h4>
+                    <div class="row">
+                        {% for poule in poules  %}
+                          <div class="col-lg-6 col-12 col-md-6">
+                              <h4 class="hockey-stats-h4">Poule {{ poule.name }}</h4>
+                             <table class="table-responsive table-striped align-left">
+                                <thead>
+                                    <th>Equipe</th>
+                                    <th>P</th>
+                                    <th>BM</th>
+                                    <th>BE</th>
+                                    <th>GA</th>
+                                </thead>
+                                <tbody>
+                                    {% for elt in standing|keyvalue:poule.name  %}
+                                        <tr>
+                                            <td>{{ forloop.counter }}  &nbsp;{{ elt.team.name }}</td>
+                                            <td>{{ elt.points }}</td>
+                                            <td>{{ elt.goals }}</td>
+                                            <td>{{ elt.conceded_goals }}</td>
+                                            <td>{{ elt.goals_average }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                             </table>
+                          </div>
+                        {% endfor %}
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <h4 class = "hockey-stats-h4">Statistiques</h4>
+                <div class="team-best-player">
+                <div class="">
+                <ul class="player-filters" role="tablist">
+            <li class="active">
+                <a href="#goals" role="tab" data-toggle="tab">Buts</a>
+            </li>
+            <li>
+                <a href="#assist" role="tab" data-toggle="tab">Passes decisives</a>
+            </li>
+        </ul>    
+    </div>
+    <div class="tab-content">
+        <div class="best-players-list tab-pane active" id="goals">  
+                {% for gol in goals  %}
+                <a href="#" class="item">
+                <span class="number">{{ forloop.counter }}</span>
+                <span>{{ gol.player.name }} 
+                  
+                </span>
+                <span class="achievement">{{ gol.nbgoal }}</span>
+                </a>
+                {% endfor %}
+        </div>
+        <div class="best-players-list tab-pane" id="assist">
+         
+        </div>
+    </div>
+</div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Stanfing begin-->
+    <section class="standing">
+        
+    </section>
+    <!-- End standing-->
+
+
+    <!--MAIN TEAM STORE BEGIN-->
+    
+
+    <section class="main-team-store">
+
+
+
+<!--MAIN SPONSOR SLIDER BEGIN-->
+<div class="main-sponsor-slider-background">
+<div id="main-sponsor-slider" class="carousel slide main-sponsor-slider" data-ride="carousel">
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-4 text-center">
+                        <img class="sponsor-icons" src="{% static 'images/coupe_sponsor/comsas.jpg' %}" alt="comsas" title="club informatique de l'universite de yaounde 1">	
+                    </div>
+                    <div class="col-xs-4 text-center">
+                        <img class="sponsor-icons" src="{% static 'images/coupe_sponsor/kalata.png' %}" alt="groupe kalata" title="Groupe de prepa concours">	
+                    </div>
+                </div>
+            </div>	
+        </div>
+       
+        <!-- Controls -->
+        <a class="nav-arrow left-arrow" href="#main-sponsor-slider" role="button" data-slide="prev">
+                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                <span class="sr-only">Precedent</span>
+        </a>
+        <a class="nav-arrow right-arrow" href="#main-sponsor-slider" role="button" data-slide="next">
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                <span class="sr-only">Suivant</span>
+        </a>
+    </div>	
+</div>
+</div>
+<!--MAIN SPONSOR SLIDER END-->
+
+    </section>
+
+    <!--MAIN TEAM STORE END-->
+<!--FOOTER BEGIN-->
+{% include 'basecoupechef/includes/footer.html' %}
+<!--FOOTER END-->
+
+
+</body>
+
+
+</html>

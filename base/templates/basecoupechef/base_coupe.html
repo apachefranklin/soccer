@@ -1,0 +1,49 @@
+{% load static %}
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<!-- soccer/project/login.html  07 Jan 2020 03:42:43 GMT -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+
+<title>Connexion</title>
+
+<!-- Bootstrap Core and vandor -->
+<link rel="stylesheet" href="{% static 'css/librairies/bootstrap.min.css' %}" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"  crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Core css -->
+<link rel="stylesheet" href="{% static 'css/main.css' %}"/>
+<link rel="stylesheet" href="{% static 'css/theme1.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/librairies/jquery.toast.min.css' %}" />
+<link rel="stylesheet" href="assets/plugins/charts-c3/c3.min.css"/>
+</head>
+<body class="font-montserrat">
+
+<div id='pageloader'>
+        <div class="preloader-wrapper small active">
+            <div class="spinner-layer spinner-green-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+</div>
+{% block content %}
+  
+{% endblock content %}
+<script type="text/javascript" src="{% static 'js/librairies/jquery-3.5.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/librairies/jquery.toast.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/utility.js' %}"></script>
+
+
+<!-- soccer/project/login.html  07 Jan 2020 03:42:43 GMT -->
+</html>

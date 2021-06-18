@@ -1,0 +1,47 @@
+{% extends 'basecoupechef/base_coupe.html' %}
+{% load static %}
+{% block content %}
+<div class="auth">
+    <div class="auth_left">
+        <div class="card">
+            <form method="post" action="{% url 'plogin' %}" class="ajax-form">
+                {% csrf_token %}
+                <div class="text-center mb-2">
+                    <a class="header-brand" href="{% url 'home' %}"><i class="fa fa-soccer-ball-o brand-logo"></i></a>
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Connectez vous a votre compte</div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="emailorusername" aria-describedby="emailHelp" required="required" name="username" placeholder="Entrer l'email ou le nom d'utilisateur">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Mot de passe<a href="#" class="float-right small">Mot de passe oublié</a></label>
+                        <input type="password" class="form-control" name="password" id="password" required="required" placeholder="Password">
+                    </div>
+                    <div class="form-footer">
+                        <button type="submit" class="btn btn-primary btn-block" title="connexion">Connexion</button>
+                    </div>
+                    <br />
+                        
+                    <div class="form-footer">
+                        <center>
+                            ou bien continuer avec 
+                        </center>
+                        <br />
+                        
+                        <a href="#" class="btn btn-block btn-danger">GOOGLE</a>
+                    </div>
+                </div>
+                <div class="text-center text-muted">
+                    Vous n'avez pas de compte? <a href="{% url 'signup' %}">Inscription</a>
+                </div>
+            </form>
+            
+
+        </div>        
+    </div>
+    <div class="auth_right full_img" style="background-image:url({% static 'images/general/login.jpg' %})">
+    <div style="position:absolute; top:0px; bottom:0px; left:0px; right: 0px; background-color: rgba(0,0,0,0.6);"></div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,26 @@
+[
+  {
+    "model": "puser.profile",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "status": false,
+      "add_date": "2021-05-02T15:52:29.441Z",
+      "sex": "I",
+      "birthdate": null,
+      "confirm_code": "0000",
+      "renitialisation_code": "0000",
+      "address": null,
+      "utype": "user",
+      "confirmed": false,
+      "profil": "default.png",
+      "photo": "",
+      "pseudo": null,
+      "is_admin": false,
+      "parent": null,
+      "ip_address": "19.3.202.3",
+      "phone_number": 0,
+      "baned": false
+    }
+  }
+]

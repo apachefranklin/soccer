@@ -1,0 +1,53 @@
+{% extends 'admincoupechef/base_admin.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12 col-md-6 col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                <h2>Ajouter une edition</h2>
+            </div>
+            <div class="card-body">
+
+                <form class="ajax-form" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label class="form-label">Nom:</label>
+                        <input type="text" class="form-control" required="required" name="teamname" placeholder="Entrer l'email ou le nom d'utilisateur">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Equipes</label>
+                        <select class="custom-select">
+                            <option>Equipes</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Photo du joueur</label>
+                        <input type="file" name="teamlogo" />
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">Ajouter</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                <h2>Liste des joueurs</h2>
+            </div>
+            <div class="card-body">
+                <table class="table-responsive table-bordered">
+                    <thead>
+                        <th>N<sup>o</sup></th>
+                        <th>Nom</th>
+                        <th>Date ajout</th>
+                        <th>Equipes</th>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,11 @@
+{
+    "python.pythonPath": "/home/protogons/anaconda3/bin/python",
+    "python.jediEnabled": true,
+    
+    "python.linting.pylintArgs": [
+        "--disable=all",
+        "--load-plugin",
+        "pylint_protobuf"
+    ],
+    "python.languageServer": "Jedi"
+}

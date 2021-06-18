@@ -1,0 +1,45 @@
+{% extends 'base_site/base.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+<div class='row header-2 my-blue' style='background-image:url("assets/images/general/background.png"); background-size:cover;background-repeat:reapeat;'>
+
+</div>
+
+<div class='row'  style='margin-top:100px !important'>
+<div class='col white l6 offset-l3 m8 offset-m2 s10 offset-s1 z-depth-1' style='border-radius:4px;'>
+<div class="row">
+    <div class="col l6 m6 s6">
+        <img src="{% static 'puser/profils/' %}{{ user.profile.profil }}" width="200px" height="200px"   class='circle' /><br />
+    </div>
+    <div class="col l6 m6 s6">
+        <h6><b class="fup">{% trans "nom d'utilisateur:" %}</b></h6>
+        {{ user.username }}
+        <br />
+        <h6><b class="fup">{% trans "nom et prénom:" %}</b></h6>
+        {{ user.first_name}}  {{ user.last_name }}
+        <br />
+        <h6><b class="fup">{% trans "sexe:" %}</b></h6>
+        {{ user.profile.get_sex_display }}
+        <br />
+        <h6><b class="fup">{% trans "émail(s):" %}</b></h6>
+          {{  user.email }}
+          <br />
+        <h6><b class="fup">{% trans "téléphone:" %}</b></h6>
+            {{ user.profile.phone }}
+            <br />
+        <h6><b class="fup">{% trans "addresse:" %}</b></h6>
+        
+        {% if user.profile.address %}
+            {{ user.profile.address}}
+        {% endif %}
+            <br />
+        
+    </div>
+</div>
+            
+
+       
+    </div>
+</div>
+{% endblock content %}

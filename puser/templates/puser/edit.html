@@ -1,0 +1,53 @@
+{% extends "base_site/base.html" %}
+{% load i18n %}
+{% block content %}
+<div class='header-2 my-blue'>
+
+</div>
+
+<div class='row' style='padding:14px 0px 14px 0px'>
+<form class = "col white l6 offset-l3 m8 offset-m2 s10 offset-s1 z-depth-1" id = "form_update_profi" method="post" action="" enctype="multipart/form-data">
+{% csrf_token %}
+        <h4 class="fup">{% trans "mettre a jour mes informations" %}</h4>
+        <div class='divider'></div>
+        {{ user_form.as_p }}
+        {{ profile_form.as_p }}
+    <button type='submit' class="btn btn-medium my-blue fup">{% trans "mettre à jour" %}</button>
+    <br />
+    <br />
+    </form>
+</div>
+
+<script type='text/javascript'>
+    $(function(e){
+        $("#form_update_profil").on("submit",function(e){
+            e.preventDefault();
+            var user_data=new FormData(this);
+            $("#pageloader").fadeIn();
+            $.ajax({
+                url:$(this).attr("action"),
+            method: "POST",
+            data: user_data,
+            contentType: false,
+            cache: false,
+            processData: false,
+            dataType: "json",
+            success:function(result){
+                $("#pageloader").fadeOut();
+                display_result(result);
+                
+            },
+            error:function(result){
+                $("#pageloader").fadeOut();
+                $.toast({
+                    heading:"Account info",
+                    text:"Une erreur innatendue s'est produite",
+                    icon:"error"
+                });
+            }
+            })
+            return false;
+        })
+    });
+</script>
+{% endblock content %}

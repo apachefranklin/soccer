@@ -1,0 +1,76 @@
+{% load static %}
+{% load keyvalue %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Home</title>
+    
+    {% include "basecoupechef/includes/css_js.html" %}
+
+</head>
+
+<body>
+
+
+
+    
+
+<!--MAIN MENU WRAP END-->
+{% include "basecoupechef/includes/header.html" %}
+
+
+<div class="container-fluid">
+  <center>
+    <h1 class="align-self-center">Calendrier des matchs</h1>
+  </center>
+ <div class="row">
+     <div class="col-12 col-lg-5 offset-lg-2" >
+        <div class="main-lates-matches shadow-lg mb-10 " style="margin-bottom: 30px !important; background-color: beige !important;">
+            {% for match in all_match  %}
+            <a href="#" class="item" style="background-color: rgb(173, 173, 140);">
+                <span class="championship">{{ match.title }}</span>
+                <span class="teams-wrap">
+                        <span class="team">
+                            <span>{{ match.team1.name }}</span>
+                        </span>
+                        <span class="score">
+                            <span>{{ match.date_to_play }}</span>
+        
+                        </span>
+                        <span class="team1">
+                            <span>{{ match.team2.name }}</span>
+                        </span>
+                </span>
+                <!--
+                    <span class="game-result">(5-4) penalties</span>
+                -->
+                
+            </a>
+            {% endfor %}
+            
+           
+        </div>  
+     </div>
+ </div>
+ 
+</div>
+
+    
+
+
+
+<!--FOOTER BEGIN-->
+{% include 'basecoupechef/includes/footer.html' %}
+<!--FOOTER END-->
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,96 @@
+{% load static %}
+<footer class="footer">
+    <div class="wrapper-ovefllow">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <div class="footer-lft  text-white">
+                        <div class="rap" style="color: white!important;">
+                            <h4>Les équipes</h4>
+                            <ul class="foot-left-menu">
+                                {% for team in teams  %}
+                                  <li class="text-white" style="color:white !important"><a href="#" style="color:white !important">{{ team.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-lg-3 col-md-4 col-sm-12">
+                    <div class="foo-contact">
+                        <h4>Contactez nous</h4>
+                        <ul class="contact-list">
+                            <li><i class="fa fa-flag" aria-hidden="true"></i><span>Département d'informatique</span></li>
+                            <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:team@email.com">dnzklin@gmail.com</a></li>
+                            <li class="phone"><i class="fa fa-phone" aria-hidden="true"></i><span>+237 694564339</span></li>
+                        </ul>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+<script type="text/javascript" src="{% static 'js/library/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/library/jquery-ui.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/library/bootstrap.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/library/jquery.sticky.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/library/jquery.jcarousel.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/library/jcarousel.connected-carousels.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/library/owl.carousel.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/library/progressbar.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/library/jquery.bracket.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/library/chartist.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/library/Chart.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/library/fancySelect.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/library/isotope.pkgd.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/library/imagesloaded.pkgd.js' %}"></script>
+
+<script type="text/javascript" src="{% static 'js/jquery.team-coundown.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/matches-slider.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/header.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/matches_broadcast_listing.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/news-line.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/match_galery.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/main-club-gallery.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/product-slider.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/circle-bar.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/standings.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/shop-price-filter.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/timeseries.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/radar.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/slider.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/preloader.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/diagram.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bi-polar-diagram.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/label-placement-diagram.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/donut-chart.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/animate-donut.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/advanced-smil.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/svg-path.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/pick-circle.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/horizontal-bar.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/gauge-chart.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/stacked-bar.js' %}"></script>
+
+<script type="text/javascript" src="{% static 'js/library/chartist-plugin-legend.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/library/chartist-plugin-threshold.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/library/chartist-plugin-pointlabels.js' %}"></script>
+
+<script type="text/javascript" src="{% static 'js/treshold.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/visible.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/anchor.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/landing_carousel.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/landing_sport_standings.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/twitterslider.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/champions.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/landing_mainnews_slider.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/carousel.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/video_slider.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/footer_slides.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/player_test.js' %}"></script>
+
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+<script type="text/javascript" src="{% static 'dev-assets/demo-switcher.js' %}"></script>

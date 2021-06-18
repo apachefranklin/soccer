@@ -1,0 +1,64 @@
+{% load static %}
+<!Doctype html>
+<html>
+    <head>
+    <meta charset='utf-8'>
+        <title>Confirmation de compte</title>
+        <style type='text/css'>
+        body{
+            font-family:"arial narrow";
+            font-size:23px;
+        }
+        .btn
+        {
+            display:block;
+            color:#ffffff !important;
+            width:250px;
+            height:50px;
+            border:none;
+            box-shadow: 0px 0px 4px grey;
+            background-color:#d84315;
+            text-decoration:none;
+            text-decoration: none;
+            text-align:center;
+            line-height:50px;
+            text-transform:uppercase;
+        }
+        .description{
+            display:block;
+            width: 300px;
+            height: auto;
+            box-shadow: 0px 0px 4px grey;
+            padding: 14px;
+            /*background-color:#01579b;*/
+            border-radius:3px;
+            font-weight:100;
+
+        }
+        </style>
+    </head>
+
+    <body>
+    <img src='http:/127.0.0.1:8082{% static "shared/images/general/protogons_complet.png" %}' width='150px' />
+    <br />
+    <br />
+    <span class='description'>
+    Hey, <b>{{ name }}</b>,
+    <br />
+    <br />
+    Nous te remercions d'avoir crée un compte Protogons,
+    Confirme juste ton identite et 
+    profite de tout l'ecosystème logiciel
+    de Protogons en cliquant  sur le boutton orange ou entrant le code de confirmation:
+    <br />
+    <br />
+    <b>Code:</b> {{ code }}
+    </span>
+    <br />
+    <br />
+    <a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{% url 'performconfirmemail' %}?fromurl=true&email={{ email }}&code={{ code }}&redirect={{ request.GET.redirect }}" class='btn'>
+        CONFIRMER
+    </a>
+    
+    </body>
+</html>

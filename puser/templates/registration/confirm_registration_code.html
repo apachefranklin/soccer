@@ -1,0 +1,100 @@
+{%load static %}
+<!doctype html>
+<html>
+<head>
+    <title>Confirmation de code</title>
+{% include "base_site/base_css_js.html" %}
+</head>
+<body class='my-blue' style="background-image:url({% static 'base_site/images/general/background.png' %}); background-repeat:reapeat;">
+<!--loader for my form-->
+<div id='pageloader'>
+    <div class="preloader-wrapper small active">
+        <div class="spinner-layer spinner-green-only">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end loader -->
+<div class="row header-2">
+<div class='col l4 offset-l4 m6 offset-m2 s10 offset-s1 left-align'>
+            <br />
+            <br />
+            
+           <a href="{% url 'pwb:home' %}">
+                <img src="{% static 'shared/images/general/protogons_logo_blanc.png' %}" style='width:100px !important; height:auto !important' />
+            </a>
+</div>
+<div class='col s12'></div>
+    <div class='col l4 offset-l4 m6 offset-m2 s10 offset-s1 center-align'>
+             
+    </div>
+
+</div>
+<div class="row signin-up">
+    <div class="col l4 offset-l4 m6 offset-m2 s10 offset-s1 z-depth-1 white">
+        <center>
+            <span class='white-te' style='font-size:18px; text-align: justify !important;'>Votre compte n'est pas encore activé, veuillez saisir le code qui a été envoyé à votre addresse émail. veuillez verifier vos spams si vous ne voyer le mail*</span>
+        <h4 class="left"></h4>
+        </center>
+        
+        <form  action="{% url 'performconfirmemail' %}?redirect={{ request.GET.redirect }}" id="form_perform_code" method="get">
+
+            <div class='row'>
+                <div class='input-field col s12'>
+                    <i class='material-icons prefix'>lock</i>
+                    <input type='number' required="required" name='code' id='code' placeholder='Code de confirmation:' class='validate input-tet rounded' />
+                    <label for='code' class="white-text">Code de confirmation:</label>
+                </div>
+                <div class='input-field col s12 hide'>
+                    <i class='material-icons prefix '>lock</i>
+                    <input type='email' name='email' id='email' value="{{ request.GET.email }}" readonly="readonly" class='validate input-tet rounded' />
+                </div>
+                <div class='input-field col s12 hide'>
+                    <i class='material-icons prefix '>lock</i>
+                    <input type='hidden' name='redirect' value="{{ request.GET.redirect }}" readonly="readonly" class='validate input-tet rounded' />
+                </div>
+                <br />
+                <div class='col s12'>
+                    <button type='submit' class='btn btn-medium  my-orange rounde z-depth-1'>
+                        <i class='material-icons left'>arrow_forward</i><b>Suivant</b>
+                    </button>
+                    <br />
+
+                </div>
+            </div>
+        </form>
+        <a id='send_email_again' href="{% url 'regiscodeagain' request.GET.email %}" class='b' style='font-size:20px'><b>Renvoyer le mail</b></a>
+        <br />
+        <br />
+</div>
+    
+</div>
+
+
+<script type="text/javascript">
+    $(function(e){
+        $("#send_email_again").click(function(){
+            $("#pageloader").fadeIn();
+            $.get($(this).attr("href"),{},function(r){
+                $("#pageloader").fadeOut();
+                var pso='mid-center';
+                display_result(r)
+            },"Json");
+            return false;
+        });
+
+        
+    });
+</script>
+</body>
+
+</html>
+

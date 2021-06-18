@@ -1,0 +1,71 @@
+{%load static %}
+{% load i18n %}
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title class="fup">{% trans "Numero de téléphone" %}</title>
+{% include "base_site/base_css_js.html" %}
+</head>
+<body class='my-blue' style="background-image:url(/static/base_site/images/general/background.png); background-repeat:reapeat;">
+
+<div class="row header-2">
+<div class='col l4 offset-l4 m6 offset-m2 s12 left-align'>
+            <br />
+            <br />
+            
+           <a href="{% url 'pwb:home' %}">
+                <img src="{% static 'shared/images/general/protogons_logo_blanc.png' %}" style='width:100px !important; height:auto !important' />
+            </a>
+           </div>
+    <div class='col s12 center-align'>
+    <span class='white-text fup' style='font-size:44px'><b>{% trans "Numero de téléphone" %}</b></span>
+    </div>
+
+</div>
+<div class="row signin-up">
+    <div class="col l4 offset-l4 m10 offset-m1 s12 z-depth-1 white">
+        <h5 class="fup">Completez votre profil et acceder a toutes les fonctionnalites utilisateur de protogons</h5>
+        <br /><br /><br />
+        <form action="{% url 'pcompletephone' %}?redirect={{ request.GET.redirect }}" id="form_signin" method="post" class="ajax-form" form_title="complete téléphone">
+            {% csrf_token %}            
+            <div class='row'>
+                <div class='input-field col s12'>
+                    <b class='prefix'><i class="fas fa-phone left small fup"></i></b>
+                    <input type="text" name="phone_number" id="phone_number" class="" placeholder="renseigner votre numero de téléphone" />
+                    <label for="id_username">Téléphone</label>
+                </div>
+                {% if request.GET.redirect %}
+                    <div class='input-field col s12 hide'>
+                        <input type='text' name='redirect' value='{{ request.GET.redirect }}' />
+                    </div>                
+                {% endif %}
+                <input type="hidden" name="next" value="{{ next }}" />
+                <br />
+                <div class='col s12'>
+                
+        <br />
+        <br />
+        <div class="row">
+            <div class="col s12 center-align">
+                <button type='submit' style="width: 98%;" class='btn btn-large my-blue z-depth-1'>
+                <i class="fas fa-phone left small fup"></i><b>{% trans "Ajouter" %}</b>
+                </button>
+                <br /><br />
+            </div>
+        </div>
+                  
+                 
+                </div>
+            </div>
+        </form>
+        
+       
+    <br />
+    <br />
+</div>
+        
+</div>
+</body>
+
+</html>

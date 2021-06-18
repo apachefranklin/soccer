@@ -1,0 +1,82 @@
+{% extends "base_site/base.html" %}
+{% load i18n %}
+{% block content %}
+<div class='header-2 my-blue'>
+
+</div>
+
+<div class='row' style='padding:14px 0px 14px 0px'>
+<form class = "col white l6 offset-l3 m8 offset-m2 s10 offset-s1 z-depth-1" id = "form_update_profil" method="post" action="{% url 'pupdateprofil' %}">
+{% csrf_token %}
+        <h4 class="fup">{% trans "mettre a jour mes informations" %}</h4>
+        <div class='divider'></div>
+        <br />
+        <div class='input-field'>
+            <input type='text' id='user_name' name='name' class='inpu-text ounded' placeholder='Votre nom' value="{{ user.last_name }}" />
+            <label for="user_name"><b class="fup">{% trans "nom:" %}</b></label>
+        </div>
+        <div class='input-field'>
+            <input type='text' id='last_name' name='last_name' class='inpu-text runded' placeholder='Votre prenom' value="{{ user.first_name }}" />
+            <label for="last_name"><b class="fup">{% trans "prénom:" %}</b></label>
+        </div>
+        <div class='input-field'>
+            <input type='text' id='address' name='address' class='inpt-text ronded' placeholder='Votre adresse' value="{{ user.profile.address }}" />
+            <label for="address"><b class="fup">{% trans "addresse:" %}</b></label>
+        </div>
+        <div class='input-field'>
+            <b class="fup">{% trans "sexe:" %}</b>
+            <select name='sex' id="sexe" class='browser-default'>
+                <option value="F" {% if user.profile.sex == "F" %}selected="selected"{% endif %}>Feminin</option>
+                <option value="M" {% if user.profile.sex == "M" %}selected="selected"{% endif %}>Masculin</option>
+                <option value="I" {% if user.profile.sex == "I" %}selected="selected"{% endif %}>Indetermine</option>
+            </select>
+        </div>
+<!--
+        <div class='input-field'>
+            <input type='email' id='email' name='email' class='input-text rounded' placeholder='Votre email' value=""
+            <label for="email">Votre Email:</label>
+        </div>
+        <div class='input-field'>
+            <input type='number' id='phone' name='phone' class='input-text rounded' placeholder='Votre telephone' value=""
+            <label for="phone">Telephone:</label>
+        </div>
+        -->
+    <button type='submit' class="btn btn-medium my-blue fup">{% trans "mettre à jour" %}</button>
+    <br />
+    <br />
+    </form>
+</div>
+
+<script type='text/javascript'>
+    $(function(e){
+        $("#form_update_profil").on("submit",function(e){
+            e.preventDefault();
+            var user_data=new FormData(this);
+            $("#pageloader").fadeIn();
+            $.ajax({
+                url:$(this).attr("action"),
+            method: "POST",
+            data: user_data,
+            contentType: false,
+            cache: false,
+            processData: false,
+            dataType: "json",
+            success:function(result){
+                $("#pageloader").fadeOut();
+                display_result(result);
+                
+            },
+            error:function(result){
+                $("#pageloader").fadeOut();
+                $.toast({
+                    heading:"Account info",
+                    text:"Une erreur innatendue s'est produite",
+                    icon:"error"
+                });
+            }
+            })
+            return false;
+        })
+    });
+</script>
+{% endblock content %}

@@ -1,0 +1,129 @@
+{% extends "proadmin/base_pro_admin.html" %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+    <div class='row p-3'>
+        <div class='col-lg-8 col-12'>
+            
+            <form class= "row shadow form_add_user pt-2" method="post" action="{% url 'padd' %}" >
+                {% csrf_token %}
+                <div class="col-12">
+                    <h3>Ajouter un utilisateur</h3>
+                </div>
+                <div class="form-group col-lg-6 col-md-6 col-12">
+                    <label for='user_name'>Nom</label>
+                    <input class="form-control form-control-sm" type='text' name='user_name' id='user_name' placeholder="Nom de l'utilisateur" required='required' />         
+                </div>
+                <div class='form-group col-lg-6 col-md-6 col-12'>
+                    <label for='user_last_name'>Prenom</label>
+                    <input class="form-control form-control-sm" type='text' name='user_last_name' placeholder="Le prenom de l'utilisateur" id="user_last_name" />
+                </div>
+                <div class='form-group col-lg-6 col-md-6 col-12'>
+                    <label for='user_email'>Email</label>
+                    <input class="form-control form-control-sm" type='email' name='user_email' placeholder="Email de l'utilisateur" id="user_email" required='required' />
+                </div>
+                <div class='form-group col-lg-6 col-md-6 col-12'>
+                    <label for='user_phone'>Telephone</label>
+                    <input class="form-control form-control-sm" type='number' name='user_phone' placeholder="Numero de telephone de l'utilisateur" id="user_phone" required='required' />
+                </div>
+                <div class='form-group col-lg-6 col-md-6 col-12'>
+                    <label for='user_address'>Addresse</label>
+                    <input class="form-control form-control-sm" type='text' name='user_address' placeholder="Tam-tam biyem assi" id="user_address" required='required' />
+                </div>
+                <div class='form-group col-lg-6 col-md-6 col-12'>
+                    <label for='sex' class='header-text'>Sexe</label>
+                    <select name='user_sex' placeholder="Le prenom de l'utilisateur" id="user_sex" class='form-control form-control-sm'>
+                        <option value="F">Feminin</option>
+                        <option value="M">Masculin</option>
+                    </select>
+                </div>
+                    <!-- Gestion des roles -->
+                <div class='col-12'>
+                    Attribuer des roles a l'utilisateur:
+                    <div class="form-check">
+                        <input class="form-check-input uncheck_checkall" type="checkbox" id='checkallrole' name='checkallrole'  />
+                        <label for="checkallrole">Tout cocher</label>
+                    </div>
+                </div>
+                <div class='col-12'>
+                    <div class='row'>
+                        {% for role in roles %}
+                            <div class='col-lg-3 col-md-4 col-12'>
+                                <div class="form-check">
+                                    <input class="form-check-input role" type="checkbox" id="{{ role.codename }}" name="{{ role.codename }}" value='{{ role.codename }}' />
+                                    <label for="{{ role.codename }}">{{ role.description }}</label>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                    <!--fin de la gestion des roles -->
+                    <div class='form-group col-lg-6 col-md-6 col-12'>
+                        <button type='submit' class='btn btn-block btn-md second-color text-white'><i class='fa fa-user-plus float-left'>b</i><b>Ajouter</b></button>
+                    </div>
+                </form>
+                Rechercher un utilisateur:
+                <form class="row">
+                    <div class='form-group col-lg-11 col-11 col-md-11 shadow'>
+                        <input class="form-control form-control-sm" type='text' name='searchuser' id='searchuser' placeholder='rechercher' />
+                    </div>
+                    <div class='col-1'>
+                        <button class='btn grey'><i class='material-icons'>search</i></button>
+                    </div>
+                </form>
+                <!-- Gestion de la liste des utilisateurs -->
+                <div class='row user-list'>
+                    {% if user_list %}
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="fup">Nom et prenom</th>
+                                    <th class="fup">Phone</th>
+                                    <th class="fup">Email</th>
+                                    <th class="fup">Edit</th>
+                                    <th class="fup">Delete</th>
+                                    <th class="fup">View</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for user in user_list  %}
+                                  <tr>
+                                      <td>{{ user.name }} {{ user.last_name }}</td>
+                                      <td>
+                                        {% for phone in user.phone_set.all  %}
+                                          {{phone.phone }}     
+                                        {% endfor %}   
+                                      </td>
+                                      <td>
+                                          {% for email in user.email_set.all %}{{ email.email }} {% endfor %}
+                                      </td>
+                                      <td>
+                                          <a href="#" class="nav-link">Edit</a>
+                                      </td>
+                                      <td>
+                                        <a href="#" class="nav-link">Delete</a>
+                                     </td>
+                                     <td>
+                                        <a href="#" class="nav-link">View</a>
+                                    </td>
+                                  </tr>
+                                  
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        {% for user in user_list %}
+                            
+                        {% endfor %}
+                    {% else %}
+                        <h1 class='header-text bold'>Pas d'utilisateur</h1>
+                    {% endif %}
+                </div>
+        
+        </div>
+            <script type='text/javascript' src="{% static 'puser/js/user_admin.js' %}"></script>
+        
+        </div>
+        
+</div>
+
+{% endblock content %}
